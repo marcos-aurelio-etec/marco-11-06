@@ -18,7 +18,7 @@ public class Genero {
     private long id;
     private String nome;
 
-    @OneToMany(mappedBy = "generos")
+    @OneToMany(mappedBy = "genero")
     private List<Livro> livros;
 
     public long getId() {
