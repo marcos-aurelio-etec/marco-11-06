@@ -5,27 +5,29 @@
     <head>
         <meta charset="UTF-8" />
         <title>Novo Livro</title>
+        <link rel="stylesheet" href="/app/src/main/webapp/css/bootstrap.min.css">
     </head>
     <body>
         <h1>Novo Livro</h1>
-
-        <form action="/livros/insert" method="post">
-            <div>
-                <label for="nome">Título do Livro</label>
-                <input type="text" id="titulo" name="titulo" placeholder="Digite o título do Livro" />
-            </div>
-            <label for="generos">Selecione o gênero do livro</label>
-            <select name="genero" id="generos">
-                <c:forEach var="item" items="${generos}">
-                    <option value="${item.id}">${item.nome}</option>
-                </c:forEach>
-            </select>
-            <button type="submit">Salvar</button>
-       
+        <div class="container">
+            <form action="/livros/insert" method="post">
+                <div>
+                    <label class="form-label" for="nome">Título do Livro</label>
+                    <input class="form-control" type="text" id="titulo" name="titulo" placeholder="Digite o título do Livro" />
+                </div>
+                <label class="form-label for="generos">Selecione o gênero do livro</label>
+                <select class="form-select" name="genero" id="generos">
+                    <c:forEach var="item" items="${generos}">
+                        <option value="${item.id}">${item.nome}</option>
+                    </c:forEach>
+                </select>
+                <button type="submit" class="btn btn-success">Salvar</button>
+           
+                </form>
+                <br />
+                <a href="/livros/list" class="btn btn-secondary">Voltar</a>
             </form>
-            <br />
-            <a href="/livros/list">Voltar</a>
-        </form>
+        </div>
     </body>
 </html>
 

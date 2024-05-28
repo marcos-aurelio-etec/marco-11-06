@@ -6,30 +6,33 @@
     <head>
         <meta charset="UTF-8" />
         <title>Lista de Livros</title>
+        <link rel="stylesheet" href="/app/src/main/webapp/css/bootstrap.min.css">
     </head>
     <body>
         <h1>Lista de Livros</h1>
 
-        <a href="/livros/insert">Novo Livro</a>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Gênero</th>
-                <th>&nbsp;</th>
-            </tr>
-            <c:forEach var="item" items="${livros}">
+        <div class="container">
+            <a href="/livros/insert" class="btn btn-primary">Novo Livro</a>
+            <table class="table">
                 <tr>
-                    <td>${item.id}</td>
-                    <td>${item.titulo}</td>
-                    <td>${item.genero.nome}</td>
-                    <td>
-                        <a href="/livros/update?id=${item.id}">Editar</a>
-                        <a href="/livros/delete?id=${item.id}">Deletar</a>
-                    </td>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Gênero</th>
+                    <th>&nbsp;</th>
                 </tr>
-            </c:forEach>
-        </table>
+                <c:forEach var="item" items="${livros}">
+                    <tr>
+                        <td>${item.id}</td>
+                        <td>${item.titulo}</td>
+                        <td>${item.genero.nome}</td>
+                        <td>
+                            <a class="btn btn-secondary" href="/livros/update?id=${item.id}">Editar</a>
+                            <a class="btn btn-danger" href="/livros/delete?id=${item.id}">Deletar</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
     </body>
 </html>
 

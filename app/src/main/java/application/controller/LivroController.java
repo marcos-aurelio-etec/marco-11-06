@@ -50,4 +50,52 @@ public class LivroController {
         return "/livro/list";
     }
 
+    @RequestMapping("/update") 
+    public String update(@RequestParam("id") long id, Model ui) {
+        Optional<Livro> result = livroRepo.findById(id);
+        if(result.isPresent()) {
+            ui.addAttribute("livro", result.get());
+            ui.addAttribute("genero", generoRepo.findAll());
+            return "/livro/upadte";
+        }
+
+        return "redirect:/livros/list";
+    }
+
+
+    @RequestMapping(value = "/upadte", method = RequestMethod.POST)
+    public String update(@RequestParam("id") long id, @RequestParam("titulo") String titulo, @RequestParam("genero") long generoId) {
+        Optional<Livro> result = livroRepo.findById(id);
+        if(result.isPresent()) {
+            Optional<Genero> resultGenero = generoRepo.findById(generoId);
+            if(resultGenero.isPresent()) {
+                result.get().setTitulo(titulo);
+                result.get().setGenero(resultGenero.get());
+            }
+
+
+            livroRepo.save(result.get());
+
+        }
+
+        return "redirect:/livros/list";
+    }
+
+    @RequestMapping("/delete")
+    public String delete(Model ui, @RequestParam("id") long id) {
+        Optional<Livro> resultado = livroRepo.findById(id);
+        if(resultado.isPresent()) {
+            ui.addAttribute("livro", resultado.get());
+            return "/livro/delete";
+        }
+
+        return "redirect:/livros/list";
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String delete(@RequestParam("id") long id) {
+        livroRepo.deleteById(id);
+        return "redirect:/livros/list";
+    }
+
 }
