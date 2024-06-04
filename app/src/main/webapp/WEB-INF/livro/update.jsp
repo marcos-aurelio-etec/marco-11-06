@@ -5,11 +5,11 @@
     <head>
         <meta charset="UTF-8" />
         <title>Editar Livro</title>
-        <link rel="stylesheet" href="/app/src/main/webapp/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
     </head>
     <body>
         <div class="container">
-            <h1>Editar Gênero</h1>
+            <h1>Editar Livro</h1>
             <form action="/livros/update" method="post">
                 <input type="hidden" name="id" value="${livro.id}">
                 <div>
@@ -18,7 +18,7 @@
                 </div>
                 <div>
                     <label for="genero" class="form-label">Gênero:</label>
-                    <select name="genero" id="genero">
+                    <select name="genero" id="genero" class="form-select">
                         <c:forEach var="item" items="${generos}">
                             <option ${item.id == livro.genero.id ? "selected" : ""} value="${item.id}">${item.nome}</option>
                         </c:forEach>

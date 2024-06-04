@@ -6,12 +6,12 @@
     <head>
         <meta charset="UTF-8" />
         <title>Lista de Livros</title>
-        <link rel="stylesheet" href="/app/src/main/webapp/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
     </head>
     <body>
-        <h1>Lista de Livros</h1>
-
+        
         <div class="container">
+            <h1>Lista de Livros</h1>
             <a href="/livros/insert" class="btn btn-primary">Novo Livro</a>
             <table class="table">
                 <tr>

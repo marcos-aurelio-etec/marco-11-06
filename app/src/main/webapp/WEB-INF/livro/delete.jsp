@@ -4,7 +4,8 @@
     <head>
         <meta charset="UTF-8" />
         <title>Deletar Livro</title>
-        <link rel="stylesheet" href="/app/src/main/webapp/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="/app/src/main/webapp/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
     </head>
     <body>
         <div class="contanier">

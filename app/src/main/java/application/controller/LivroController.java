@@ -55,15 +55,15 @@ public class LivroController {
         Optional<Livro> result = livroRepo.findById(id);
         if(result.isPresent()) {
             ui.addAttribute("livro", result.get());
-            ui.addAttribute("genero", generoRepo.findAll());
-            return "/livro/upadte";
+            ui.addAttribute("generos", generoRepo.findAll());
+            return "/livro/update";
         }
 
         return "redirect:/livros/list";
     }
 
 
-    @RequestMapping(value = "/upadte", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(@RequestParam("id") long id, @RequestParam("titulo") String titulo, @RequestParam("genero") long generoId) {
         Optional<Livro> result = livroRepo.findById(id);
         if(result.isPresent()) {

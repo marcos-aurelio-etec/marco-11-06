@@ -5,11 +5,11 @@
     <head>
         <meta charset="UTF-8" />
         <title>Novo Livro</title>
-        <link rel="stylesheet" href="/app/src/main/webapp/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
     </head>
     <body>
-        <h1>Novo Livro</h1>
         <div class="container">
+            <h1>Novo Livro</h1>
             <form action="/livros/insert" method="post">
                 <div>
                     <label class="form-label" for="nome">Título do Livro</label>
